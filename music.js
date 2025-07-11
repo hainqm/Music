@@ -77,19 +77,18 @@ var btnPause = '<i class="fa-solid fa-pause"></i>';
 var btnBack = controls.querySelector('.back');
 var btnForward = controls.querySelector('.forward');
 btnBack.addEventListener('click', function(){
+    console.log(count);
     
     if(count < 0){
-        return count = playlist.length - 1; // nếu đếm nhỏ hơn 0 thì quay về bài cuối
-    }else{
-        // console.log(playlist[count]);
-        singer.innerText =' - '+ playlist[count].singer;
-        song.innerText =  playlist[count].song ;
-        audio.src = playlist[count].src;
-        image.src = playlist[count].image;
-        console.log(playlist[count].singer);
-        
-        
+        count = playlist.length - 1; // nếu đếm nhỏ hơn 0 thì quay về bài cuối
     }
+    // console.log(playlist[count]);
+    singer.innerText =' - '+ playlist[count].singer;
+    song.innerText =  playlist[count].song ;
+    audio.src = playlist[count].src;
+    image.src = playlist[count].image;
+    // console.log(playlist[count].singer);
+
     count--;
     
 })
@@ -98,26 +97,21 @@ btnBack.addEventListener('click', function(){
 
 //forward
 btnForward.addEventListener('click', function(){
+    console.log(count);
     
     if(count >= playlist.length){
-        return count = 0;
-    
+        count = 0;
          // nếu đếm lớn hơn số bài thì quay về bài đầu
-    }else{
-        // console.log(playlist[count]);
-        song.innerText = playlist[count].song;
-        singer.innerText =' - '+ playlist[count].singer;
-        audio.src = playlist[count].src;
-        image.src = playlist[count].image;
-        
     }
+
+    // console.log(playlist[count]);
+    song.innerText = playlist[count].song;
+    singer.innerText =' - '+ playlist[count].singer;
+    audio.src = playlist[count].src;
+    image.src = playlist[count].image;
+        
+    
     count++;
-
-    
-    
-
-    
-    
 })
 
 // lyric
