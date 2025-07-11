@@ -2166,4 +2166,4 @@ var lyric = {
         "timestamp": 1751938003471
     }
 
-lyric = JSON.parse(lyric).data.sentences;
+lyric = JSON.parse(lyric);

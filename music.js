@@ -1,3 +1,38 @@
+const playlist = [
+    {
+        song: 'Em cưới rồi à',
+        singer: 'Thanh Hưng',
+        src: './audio/em-cuoi-roi-a.mp3',
+        image: './image/hon-le-cua-em.jpg'
+    },
+    {
+        song: 'Ai chung tình được mãi',
+        singer: 'Đinh Tùng Huy',
+        src: './audio/ai-chung-tinh-duoc-mai.mp3',
+        image: './image/ai-chung-tinh-duoc-mai.jpg'
+    },
+    {
+        song: 'Cẩm tú cầu',
+        singer: 'RayO, Huỳnh Văn',
+        src: './audio/cam-tu-cau.mp3',
+        image: './image/cam-tu-cau.jpg'
+    },
+    {
+        song: 'Bông hoa đẹp nhất',
+        singer: 'Quân A.P',
+        src: './audio/bong-hoa-dep-nhat.mp3',
+        image: './image/bong-hoa-dep-nhat.jpg'
+    }
+]
+
+console.log(playlist);
+
+var count = 0; // biến đếm chuyển bài hát
+var song = document.querySelector('.song');
+var singer = document.querySelector('.singer');
+var image = document.querySelector('.image');
+
+
 
 
 var progressBar = document.querySelector('.progress-bar');
@@ -36,15 +71,64 @@ var btnControl = controls.querySelector('.play');
 var btnPlay = '<i class="fa-solid fa-play"></i>';
 var btnPause = '<i class="fa-solid fa-pause"></i>';
 
+
+
+//back
+var btnBack = controls.querySelector('.back');
+var btnForward = controls.querySelector('.forward');
+btnBack.addEventListener('click', function(){
+    
+    if(count < 0){
+        return count = playlist.length - 1; // nếu đếm nhỏ hơn 0 thì quay về bài cuối
+    }else{
+        // console.log(playlist[count]);
+        singer.innerText =' - '+ playlist[count].singer;
+        song.innerText =  playlist[count].song ;
+        audio.src = playlist[count].src;
+        image.src = playlist[count].image;
+        console.log(playlist[count].singer);
+        
+        
+    }
+    count--;
+    
+})
+
+
+
+//forward
+btnForward.addEventListener('click', function(){
+    
+    if(count >= playlist.length){
+        return count = 0;
+    
+         // nếu đếm lớn hơn số bài thì quay về bài đầu
+    }else{
+        // console.log(playlist[count]);
+        song.innerText = playlist[count].song;
+        singer.innerText =' - '+ playlist[count].singer;
+        audio.src = playlist[count].src;
+        image.src = playlist[count].image;
+        
+    }
+    count++;
+
+    
+    
+
+    
+    
+})
+
 // lyric
 var showLyric = document.querySelector('.showLyric');
 
-console.log(lyric);
+// console.log(lyric);
 
 
 // 1 câu
 var sentences = lyric.data.sentences;
-console.log(sentences[0]);
+// console.log(sentences[0]);
 
 
 
