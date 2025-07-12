@@ -1,4 +1,4 @@
-const playlist = [
+var playlist = [
     {
         song: 'Em cưới rồi à',
         singer: 'Thanh Hưng',
@@ -24,7 +24,6 @@ const playlist = [
         image: './image/bong-hoa-dep-nhat.jpg'
     }
 ]
-
 console.log(playlist);
 
 var count = 0; // biến đếm chuyển bài hát
@@ -72,6 +71,10 @@ var btnPlay = '<i class="fa-solid fa-play"></i>';
 var btnPause = '<i class="fa-solid fa-pause"></i>';
 
 
+// 1 câu
+var sentences = lyric[0].data.sentences; ;
+// console.log(sentences[0]);
+
 
 //back
 var btnBack = controls.querySelector('.back');
@@ -88,6 +91,8 @@ btnBack.addEventListener('click', function(){
     audio.src = playlist[count].src;
     image.src = playlist[count].image;
     // console.log(playlist[count].singer);
+    sentences = lyric[count].data.sentences;
+
 
     count--;
     
@@ -109,7 +114,9 @@ btnForward.addEventListener('click', function(){
     singer.innerText =' - '+ playlist[count].singer;
     audio.src = playlist[count].src;
     image.src = playlist[count].image;
-        
+    // console.log(lyric[count].data.sentences);
+    sentences = lyric[count].data.sentences;
+    
     
     count++;
 })
@@ -120,9 +127,7 @@ var showLyric = document.querySelector('.showLyric');
 // console.log(lyric);
 
 
-// 1 câu
-var sentences = lyric.data.sentences;
-// console.log(sentences[0]);
+
 
 
 
@@ -237,9 +242,6 @@ audio.addEventListener('timeupdate', function(){
             return value.data}).join(" ");
         return showLyric.innerText ='♪ ' + appearSentence;
         
-        
-        
-        
     }else{
         return showLyric.innerText = '***';
     }
@@ -271,8 +273,6 @@ function sentenceTime(updateSentenceTime){
             return sentences[i] ;
             
         }
-            // return sentences[i] ;
-
     }
 }
 
